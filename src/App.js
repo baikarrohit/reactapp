@@ -33,37 +33,24 @@ function App() {
       date: new Date(2023, 3, 10),
     },
   ];
+  
 
- 
   return (
     <div className="App">
       <h2>Lets get started with React!</h2>
-      <ExpenseItem
-        title={expenses[0].title}
-        expenditure={expenses[0].LocationOfExpenditure}
-        amount={expenses[0].amount}
-        date={expenses[0].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[1].title}
-        expenditure={expenses[1].LocationOfExpenditure}
-        amount={expenses[1].amount}
-        date={expenses[1].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[2].title}
-        expenditure={expenses[2].LocationOfExpenditure}
-        amount={expenses[2].amount}
-        date={expenses[2].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[3].title}
-        expenditure={expenses[3].LocationOfExpenditure}
-        amount={expenses[3].amount}
-        date={expenses[3].date}
-      ></ExpenseItem>      
-     
-    
+
+      {expenses.map((ele)=>{
+        return <div key={ele.title}> 
+          <ExpenseItem 
+            title={ele.title}
+            expenditure={ele.LocationOfExpenditure}
+            amount={ele.amount}
+            date={ele.date}
+          /> 
+        </div>
+        
+      })}
+      
     </div>
   );
 }
