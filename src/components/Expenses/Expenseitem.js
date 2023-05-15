@@ -1,21 +1,32 @@
+import React, { useState } from 'react';
 import ExpenseDate from './Expensedate';
 import './Expenseitem.css';
 import './Expensedetails';
 import ExpenseDetails from './Expensedetails';
 
+
 const ExpenseItem = (props) => {
+   const [title,setTitle] = useState(props.title);
+
    const clickHandler = () => {
-    console.log("Clicked!!!");
+    setTitle("Updated!");
+    console.log(title);
    };
-   const expenseDeletd = () => {
+   /*const expenseDeleted = () => {
     console.log("Deleted!");
-   };
+   };*/
+   const [expense,setExpense] = useState(props.amount);
+   const changeExpense = () => {
+    setExpense("100$");
+   }
     return (
         <div className="expense-item"> 
             <ExpenseDate date={props.date}/>
-            <ExpenseDetails title={props.title} expenditure={props.expenditure} amount={props.amount}/>
+            <ExpenseDetails title = {title} expenditure = {props.expenditure} amount={expense}/>
             <button onClick={clickHandler}>Change Title</button>
-            <button onClick={expenseDeletd}>Delete Expense</button>
+            {/*<button onClick={expenseDeleted}>Delete Expense</button>*/}
+            <button onClick={changeExpense}>Change Expense</button>
+
         </div>
         );
 }
