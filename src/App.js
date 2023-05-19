@@ -1,8 +1,11 @@
 //import ExpenseItem from './components/Expenses/Expenseitem';
 import NewExpense from "./components/NewExpenses/NewExpense";
+import Expenses from "./components/Expenses/Expenses";
 import "./App.css";
 
 const App = (props) => {
+  
+
   const addExpenseHandler = (expense) => {
     const ExpenseData = {
       ...expense,
@@ -15,6 +18,7 @@ const App = (props) => {
       <h2>Lets get started with React!</h2>
 
       <NewExpense onAddExpense={addExpenseHandler}/>
+      <Expenses />
       
     </div>
   );
